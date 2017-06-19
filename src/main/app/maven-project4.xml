@@ -30,6 +30,7 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
     </flow>
     <flow name="logFlights">
         <jms:inbound-endpoint queue="flights" connector-ref="Active_MQ" doc:name="JMS"/>
+        <logger message="#[&quot;Executed flow logFlights&quot;]" level="INFO" doc:name="Audit Logger"/>
         <logger message="#[&quot;message.payload&quot;]" level="INFO" doc:name="Logger"/>
     </flow>
 </mule>
